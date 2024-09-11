@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { Button } from "./_components/ui/button";
 
 // SEVER COMPONENTS
 
 const Home = () => {
-  const [] = useState();
-  return <h1 className="text-red-500 mb-5 bg-red-100">Red Text</h1>
+  return <Button>test</Button>
 };
 
 export default Home;
