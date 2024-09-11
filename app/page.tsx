@@ -1,32 +1,14 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { Button } from "./_components/ui/button";
+import { Button } from "./_components/ui/button"
 
 // SEVER COMPONENTS
 
 const Home = () => {
   return <Button>test</Button>
-};
+}
 
-export default Home;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Home
 
 /*import Image from "next/image";
 
