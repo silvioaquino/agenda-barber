@@ -4,6 +4,8 @@ import { db } from "@/app/_lib/prisma"
 //import Image from "next/image"
 import BarbershopInfo from "./_components/barbershop-info"
 import ServiceItem from "./_components/service-item"
+import { getServerSession } from "next-auth"
+import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 
 interface BarbershopDetailPageProps {
   params: {
@@ -12,6 +14,8 @@ interface BarbershopDetailPageProps {
 }
 
 const BarbershopDetailPage = async ({ params }: BarbershopDetailPageProps) => {
+  const session = await getServerSession(authOptions)
+
   if (!params.id) {
     //ToDo: redirecionar para home page
     return null
@@ -36,7 +40,11 @@ const BarbershopDetailPage = async ({ params }: BarbershopDetailPageProps) => {
       <BarbershopInfo barbershop={barbershop} />
 
       {barbershop.services.map((service) => (
-        <ServiceItem key={service.id} service={service} />
+        <ServiceItem
+          key={service.id}
+          service={service}
+          isAuthenticated={!!session?.user}
+        />
       ))}
     </div>
   )
